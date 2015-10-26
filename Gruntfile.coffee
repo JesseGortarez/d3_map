@@ -20,9 +20,14 @@ module.exports = (grunt) ->
       src: [
         'bower_components/modernizr/modernizr.js'
         'bower_components/jquery/dist/jquery.min.js'
+        'bower_components/d3/d3.js'
+        'bower_components/topojson/topojson.js'
+        'bower_components/datamaps/dist/datamaps.all.js'
+        'bower_components/angular-datamaps/dist/angular-datamaps.js'
+        'assets/js/vanilla/*.js'
         'assets/js/all.js'
       ]
-      dest: 'assets/js/all.min.js'
+      dest: 'build/js/all.min.js'
     uglify: build: files: 'build/js/all.min.js': [ 'assets/js/all.min.js' ]
     htmlmin:
       main:
@@ -36,8 +41,7 @@ module.exports = (grunt) ->
       main:
         files: [
           'assets/js/*.coffee'
-          'assets/js/*.js'
-          'assets/js/libs/*'
+          'assets/js/vanilla/*.js'
           'assets/css/*.scss'
           'assets/css/all.min.css'
           'assets/*.html'
@@ -56,6 +60,13 @@ module.exports = (grunt) ->
         flatten: true
         src: [ 'assets/*.html' ]
         dest: 'build/'
+        filter: 'isFile'
+      } ]
+      angular: files: [ {
+        expand: true
+        flatten: true
+        src: ['bower_components/angular/angular.js']
+        dest: 'build/js'
         filter: 'isFile'
       } ]
       images: files: [ {
@@ -90,7 +101,6 @@ module.exports = (grunt) ->
     'autoprefixer'
     'coffee'
     'concat'
-    'uglify'
     'copy'
     'connect'
     'watch'
@@ -102,8 +112,8 @@ module.exports = (grunt) ->
     'autoprefixer'
     'coffee'
     'concat'
-    'uglify'
     'copy:main'
+    'copy:angular'
   ]
 
   grunt.registerTask 'dist', [

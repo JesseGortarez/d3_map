@@ -1,14 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>PROJECT_TITLE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/all.min.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Angular Datamaps Example</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="css/all.min.css">
+
 </head>
-  <body>
-    <div class="wrapper">
-    </div>
-    <script type="text/javascript" src="js/all.min.js"></script>
-  </body>
+<body>
+  <div class="container" ng-controller="SimpleCtrl">
+
+
+        <datamap
+          map="map"
+          plugins="plugins"
+          zoomable="true"
+          >
+        </datamap>
+
+
+
+  </div>
+
+   <script src="js/angular.js"></script>
+  <script src="js/all.min.js"></script>
+
+  <script charset="utf-8">
+
+
+
+  </script>
+</body>
 </html>
